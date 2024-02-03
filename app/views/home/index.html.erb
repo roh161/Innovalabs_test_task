@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Home Page</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f5f5f5;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 50px auto;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 5px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+
+    h1 {
+      margin-bottom: 30px;
+    }
+  </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Home Page</h1>
+        <% if current_user %>
+            <%= button_to 'Logout', logout_path, method: :delete, class: 'btn btn-danger' %>
+            <%= link_to 'Blog List', blogs_path, class: 'btn btn-secondary mt-5' %>
+        <% else %>
+            <%= link_to 'Login', login_path, class: 'btn btn-success' %>
+            <%= link_to 'Sign Up', signup_path, class: 'btn btn-primary' %>
+        <% end %>
+    </div>
+
+</body>
+</html>
